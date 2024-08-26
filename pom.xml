@@ -64,7 +64,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <awaitility.version>4.2.1</awaitility.version>
+        <awaitility.version>4.2.2</awaitility.version>
         <grpc.version>1.42.3</grpc.version>
         <guava.version>33.1.0-jre</guava.version>
         <hamcrest.version>2.2</hamcrest.version>
