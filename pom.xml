@@ -86,7 +86,7 @@
         <osgi.version>6.0.0</osgi.version>
         <osgi.compendium.version>5.0.0</osgi.compendium.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
-        <protoc.version>4.28.3</protoc.version>
+        <protoc.version>4.29.1</protoc.version>
         <resilience4j.version>2.2.0</resilience4j.version>
         <slf4j-api.version>1.7.36</slf4j-api.version>
         <snappy.version>1.1.10.7</snappy.version>
