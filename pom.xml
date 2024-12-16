@@ -7,8 +7,8 @@
     <packaging>pom</packaging>
     <version>2.0.5-SNAPSHOT</version>
 
-    <description>Time-Series Storage Plugin for OpenNMS</description>
-    <url>https://github.com/OpenNMS/opennms-cortex-tss-plugin/</url>
+    <description>Plugin persisting time series data into PromQL compatible systems with reference to Cortex</description>
+    <url>https://github.com/bluebird-community/opennms-cortex-tss-plugin/</url>
 
     <licenses>
         <license>
@@ -18,8 +18,8 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/OpenNMS/opennms-cortex-tss-plugin</url>
-        <connection>scm:git:git@github.com:OpenNMS/opennms-cortex-tss-plugin.git</connection>
+        <url>https://github.com/bluebird-community/opennms-cortex-tss-plugin</url>
+        <connection>scm:git:git@github.com:bluebird-community/opennms-cortex-tss-plugin.git</connection>
         <tag>HEAD</tag>
     </scm>
 
@@ -92,11 +92,11 @@
         <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
         <osgi.version>6.0.0</osgi.version>
         <osgi.compendium.version>5.0.0</osgi.compendium.version>
+        <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
         <protoc.version>3.25.3</protoc.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <slf4j-api.version>1.7.36</slf4j-api.version>
         <snappy.version>1.1.10.5</snappy.version>
-        <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
         <testcontainers.version>1.20.4</testcontainers.version>
     </properties>
 
@@ -140,12 +140,6 @@
                 <version>${protoc.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.sun.istack</groupId>
-                <artifactId>istack-commons-runtime</artifactId>
-                <!-- this should meet-or-beat the version defined in Karaf's dependencies -->
-                <version>3.0.12</version>
-            </dependency>
-            <dependency>
                 <groupId>org.xerial.snappy</groupId>
                 <artifactId>snappy-java</artifactId>
                 <version>${snappy.version}</version>
@@ -154,17 +148,6 @@
                 <groupId>io.dropwizard.metrics</groupId>
                 <artifactId>metrics-core</artifactId>
                 <version>${metrics.version}</version>
-            </dependency>
-            <!-- pulled in by okhttp3 -->
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-common</artifactId>
-                <version>${kotlin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-jdk8</artifactId>
-                <version>${kotlin.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.json</groupId>
