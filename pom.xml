@@ -64,28 +64,40 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <awaitility.version>4.2.0</awaitility.version>
+        <build-helper-maven-plugin.version>3.5.0</build-helper-maven-plugin.version>
         <grpc.version>1.42.3</grpc.version>
         <guava.version>33.2.1-jre</guava.version>
         <hamcrest.version>2.2</hamcrest.version>
         <java.version>11</java.version>
+        <jna.version>5.14.0</jna.version>
         <json.version>20240303</json.version>
         <junit.version>4.13.2</junit.version>
         <karaf.version>4.3.10</karaf.version>
-        <karaf.plugin.version>4.4.6</karaf.plugin.version>
         <kotlin.version>1.9.10</kotlin.version>
         <log4j.version>2.23.1</log4j.version>
-        <mockito.version>5.12.0</mockito.version>
-        <metrics.version>4.2.25</metrics.version>
-        <okio.bundle.version>1.15.0_1</okio.bundle.version>
+        <maven-bundle-plugin.version>5.1.9</maven-bundle-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
+        <maven-gpg-plugin.version>3.2.4</maven-gpg-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-shade-plugin.version>3.6.0</maven-shade-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+        <metrics.version>4.1.2</metrics.version>
+        <mockito.version>2.18.0</mockito.version>
         <okhttp.version>4.12.0</okhttp.version>
         <okhttp.bundle.version>3.13.1_1</okhttp.bundle.version>
+        <okio.bundle.version>1.15.0_1</okio.bundle.version>
         <opennms.api.version>1.0.0</opennms.api.version>
+        <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
         <osgi.version>6.0.0</osgi.version>
         <osgi.compendium.version>5.0.0</osgi.compendium.version>
         <protoc.version>3.25.3</protoc.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <slf4j-api.version>1.7.36</slf4j-api.version>
         <snappy.version>1.1.10.5</snappy.version>
+        <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
+        <testcontainers.version>1.20.4</testcontainers.version>
     </properties>
 
     <modules>
@@ -205,7 +217,7 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>5.1.9</version>
+                    <version>${maven-bundle-plugin.version}</version>
                     <extensions>true</extensions>
                     <configuration>
                         <instructions>
@@ -216,7 +228,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.13.0</version>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
@@ -225,22 +237,22 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>${build-helper-maven-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.3.1</version>
+                    <version>${maven-resources-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>${maven-shade-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.2.5</version>
+                    <version>${maven-surefire-plugin.version}</version>
                     <configuration>
                         <excludes>
                             <exclude>**/*IT.java</exclude>
@@ -270,7 +282,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>${maven-enforcer-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>enforce</id>
@@ -290,12 +302,14 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>opennms-ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>bluebird-snapshots</id>
+            <name>Maven Bluebird Snapshots</name>
+            <url>https://repo.maven.bluebirdops.org/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>opennms-ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>bluebird-releases</id>
+            <name>Maven Bluebird Releases</name>
+            <url>https://repo.maven.bluebirdops.org/releases</url>
         </repository>
     </distributionManagement>
 
@@ -307,7 +321,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.4</version>
+                        <version>${maven-gpg-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -322,19 +336,4 @@
             </build>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>sonatype.org-snapshot</id>
-            <name>Sonatype OSS Snapshots Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
 </project>
