@@ -1,8 +1,10 @@
-# OpenNMS Cortex Plugin [![CircleCI](https://circleci.com/gh/OpenNMS/opennms-cortex-tss-plugin.svg?style=svg)](https://circleci.com/gh/OpenNMS/opennms-cortex-tss-plugin)
+# OpenNMS Cortex Plugin
+
+[![Build Cortex Time Series Storage Plugin](https://github.com/Bluebird-Community/opennms-cortex-tss-plugin/actions/workflows/build-cortex-plugin.yml/badge.svg)](https://github.com/Bluebird-Community/opennms-cortex-tss-plugin/actions/workflows/build-cortex-plugin.yml)
 
 This plugin exposes an implementation of the [TimeSeriesStorage](https://github.com/OpenNMS/opennms-integration-api/blob/v0.4.1/api/src/main/java/org/opennms/integration/api/v1/timeseries/TimeSeriesStorage.java#L40) interface that converts metrics to a Prometheus model and delegates writes & reads to [Cortex](https://cortexmetrics.io/).
 
-![arch](assets/cortex-plugin-arch.png "Cortex Plugin Architecture")
+![arch](assets/cortex-plugin-architecture.drawio.svg "Cortex Plugin Architecture")
 
 ## Usage
 

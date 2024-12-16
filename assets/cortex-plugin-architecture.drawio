@@ -1,0 +1,54 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="OzAVtfHw2js81c0xh0Ia">
+    <mxGraphModel dx="762" dy="1685" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-13" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="94" y="-40" width="640" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-1" value="Cortex" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="280" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-3" value="gRPC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TkkJ8icO7UItQ4wV6S-k-2" target="TkkJ8icO7UItQ4wV6S-k-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="320" />
+              <mxPoint x="340" y="320" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-2" value="Cortex TSS Plugin" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="280" y="240" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="TkkJ8icO7UItQ4wV6S-k-4" target="TkkJ8icO7UItQ4wV6S-k-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-6" value="OSGi Bridge" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TkkJ8icO7UItQ4wV6S-k-5">
+          <mxGeometry x="-0.175" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-4" value="Plugin API" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="110" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-9" value="Time Series Integration Layer" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="280" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-7" value="TIme Series Storage API" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="290" y="80" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-10" value="Core Runtime" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="-30" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-11" value="RRD" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;dashed=1;strokeColor=#B3B3B3;fontColor=#B3B3B3;fillStyle=hatch;fillColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="400" y="30" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TkkJ8icO7UItQ4wV6S-k-12" value="NewTS" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;dashed=1;strokeColor=#B3B3B3;fontColor=#B3B3B3;fillStyle=hatch;fillColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="480" y="30" width="80" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
