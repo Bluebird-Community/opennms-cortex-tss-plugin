@@ -30,3 +30,5 @@ java/bin/
 *.swp
 *.iml
 
+# .jenv
+.java-version
