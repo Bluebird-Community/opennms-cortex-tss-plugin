@@ -87,8 +87,7 @@
         <mockito.version>2.18.0</mockito.version>
         <okhttp.version>4.12.0</okhttp.version>
         <okhttp.bundle.version>3.13.1_1</okhttp.bundle.version>
-        <okio.bundle.version>1.15.0_1</okio.bundle.version>
-        <opennms.api.version>1.0.0</opennms.api.version>
+        <opennms.api.version>1.6.1</opennms.api.version>
         <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
         <osgi.version>6.0.0</osgi.version>
         <osgi.compendium.version>5.0.0</osgi.compendium.version>
@@ -285,14 +284,12 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>bluebird-snapshots</id>
-            <name>Maven Bluebird Snapshots</name>
-            <url>https://repo.maven.bluebirdops.org/snapshots</url>
+            <id>opennms-ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>bluebird-releases</id>
-            <name>Maven Bluebird Releases</name>
-            <url>https://repo.maven.bluebirdops.org/releases</url>
+            <id>opennms-ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 
@@ -319,4 +316,19 @@
             </build>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>sonatype.org-snapshot</id>
+            <name>Sonatype OSS Snapshots Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
 </project>
