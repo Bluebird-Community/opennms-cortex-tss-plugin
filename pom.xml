@@ -72,8 +72,8 @@
         <java.version>11</java.version>
         <jna.version>5.8.0</jna.version>
         <json.version>20230227</json.version>
-        <junit.version>4.13.1</junit.version>
-        <karaf.version>4.3.9</karaf.version>
+        <junit.version>4.13.2</junit.version>
+        <karaf.version>4.3.10</karaf.version>
         <log4j.version>2.17.1</log4j.version>
         <maven-bundle-plugin.version>5.1.2</maven-bundle-plugin.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
@@ -87,7 +87,7 @@
         <okio.bundle.version>1.15.0_1</okio.bundle.version>
         <okhttp.version>3.13.1</okhttp.version>
         <okhttp.bundle.version>3.13.1_1</okhttp.bundle.version>
-        <opennms.api.version>1.0.0</opennms.api.version>
+        <opennms.api.version>1.6.1</opennms.api.version>
         <os-maven-plugin.version>1.6.2</os-maven-plugin.version>
         <osgi.version>6.0.0</osgi.version>
         <osgi.compendium.version>5.0.0</osgi.compendium.version>
