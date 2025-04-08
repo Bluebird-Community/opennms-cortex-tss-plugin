@@ -96,7 +96,7 @@
         <resilience4j.version>2.3.0</resilience4j.version>
         <slf4j-api.version>1.7.36</slf4j-api.version>
         <snappy.version>1.1.10.7</snappy.version>
-        <testcontainers.version>1.16.3</testcontainers.version>
+        <testcontainers.version>1.20.6</testcontainers.version>
     </properties>
 
     <modules>
