@@ -64,7 +64,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <awaitility.version>4.2.2</awaitility.version>
+        <awaitility.version>4.3.0</awaitility.version>
         <build-helper-maven-plugin.version>3.6.0</build-helper-maven-plugin.version>
         <grpc.version>1.42.3</grpc.version>
         <guava.version>33.3.1-jre</guava.version>
