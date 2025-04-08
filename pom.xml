@@ -68,7 +68,7 @@
         <build-helper-maven-plugin.version>3.6.0</build-helper-maven-plugin.version>
         <grpc.version>1.42.3</grpc.version>
         <guava.version>33.3.1-jre</guava.version>
-        <hamcrest.version>2.1</hamcrest.version>
+        <hamcrest.version>3.0</hamcrest.version>
         <java.version>11</java.version>
         <jna.version>5.15.0</jna.version>
         <json.version>20250107</json.version>
