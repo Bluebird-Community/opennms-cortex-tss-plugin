@@ -2,7 +2,7 @@
     <parent>
         <groupId>org.opennms.plugins.timeseries</groupId>
         <artifactId>cortex-parent</artifactId>
-        <version>2.0.5-SNAPSHOT</version>
+        <version>2.1.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cortex-karaf-features</artifactId>
@@ -57,7 +57,7 @@
             <plugin>
                 <groupId>org.apache.karaf.tooling</groupId>
                 <artifactId>karaf-maven-plugin</artifactId>
-                <version>${karaf.plugin.version}</version>
+                <version>${karaf.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                   <skip>${skipTests}</skip>

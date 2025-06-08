@@ -5,10 +5,10 @@
     <artifactId>cortex-parent</artifactId>
     <name>OpenNMS :: Plugins :: Cortex TSS :: Parent</name>
     <packaging>pom</packaging>
-    <version>2.0.5-SNAPSHOT</version>
+    <version>2.1.1-SNAPSHOT</version>
 
-    <description>Time-Series Storage Plugin for OpenNMS</description>
-    <url>https://github.com/OpenNMS/opennms-cortex-tss-plugin/</url>
+    <description>Plugin persisting time series data into PromQL compatible systems with reference to Cortex</description>
+    <url>https://github.com/bluebird-community/opennms-cortex-tss-plugin/</url>
 
     <licenses>
         <license>
@@ -18,8 +18,8 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/OpenNMS/opennms-cortex-tss-plugin</url>
-        <connection>scm:git:git@github.com:OpenNMS/opennms-cortex-tss-plugin.git</connection>
+        <url>https://github.com/bluebird-community/opennms-cortex-tss-plugin</url>
+        <connection>scm:git:git@github.com:bluebird-community/opennms-cortex-tss-plugin.git</connection>
         <tag>HEAD</tag>
     </scm>
 
@@ -64,29 +64,40 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <awaitility.version>4.2.2</awaitility.version>
+        <build-helper-maven-plugin.version>3.6.0</build-helper-maven-plugin.version>
         <grpc.version>1.42.3</grpc.version>
-        <guava.version>33.2.1-jre</guava.version>
-        <hamcrest.version>2.2</hamcrest.version>
+        <guava.version>33.3.1-jre</guava.version>
+        <hamcrest.version>2.1</hamcrest.version>
         <java.version>11</java.version>
+        <jna.version>5.15.0</jna.version>
         <json.version>20240303</json.version>
         <junit.version>4.13.2</junit.version>
         <karaf.version>4.3.10</karaf.version>
-        <karaf.plugin.version>4.4.6</karaf.plugin.version>
-        <kotlin.version>1.9.10</kotlin.version>
-        <log4j.version>2.23.1</log4j.version>
-        <mockito.version>5.12.0</mockito.version>
-        <metrics.version>4.2.25</metrics.version>
+        <log4j.version>2.24.3</log4j.version>
+        <maven-bundle-plugin.version>6.0.0</maven-bundle-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
+        <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-shade-plugin.version>3.6.0</maven-shade-plugin.version>
+        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+        <metrics.version>4.2.29</metrics.version>
+        <mockito.version>5.14.2</mockito.version>
         <okio.bundle.version>1.15.0_1</okio.bundle.version>
         <okhttp.version>4.12.0</okhttp.version>
         <jackson.version>2.16.1</jackson.version>
         <okhttp.bundle.version>3.13.1_1</okhttp.bundle.version>
-        <opennms.api.version>1.0.0</opennms.api.version>
+        <opennms.api.version>1.6.1</opennms.api.version>
+        <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
         <osgi.version>6.0.0</osgi.version>
         <osgi.compendium.version>5.0.0</osgi.compendium.version>
-        <protoc.version>3.25.3</protoc.version>
+        <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
+        <protoc.version>4.29.1</protoc.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <slf4j-api.version>1.7.36</slf4j-api.version>
-        <snappy.version>1.1.10.5</snappy.version>
+        <snappy.version>1.1.10.7</snappy.version>
+        <testcontainers.version>1.16.3</testcontainers.version>
     </properties>
 
     <modules>
@@ -129,12 +140,6 @@
                 <version>${protoc.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.sun.istack</groupId>
-                <artifactId>istack-commons-runtime</artifactId>
-                <!-- this should meet-or-beat the version defined in Karaf's dependencies -->
-                <version>3.0.12</version>
-            </dependency>
-            <dependency>
                 <groupId>org.xerial.snappy</groupId>
                 <artifactId>snappy-java</artifactId>
                 <version>${snappy.version}</version>
@@ -143,17 +148,6 @@
                 <groupId>io.dropwizard.metrics</groupId>
                 <artifactId>metrics-core</artifactId>
                 <version>${metrics.version}</version>
-            </dependency>
-            <!-- pulled in by okhttp3 -->
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-common</artifactId>
-                <version>${kotlin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-jdk8</artifactId>
-                <version>${kotlin.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.json</groupId>
@@ -172,6 +166,11 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${hamcrest.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hamcrest</groupId>
@@ -206,7 +205,7 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>5.1.9</version>
+                    <version>${maven-bundle-plugin.version}</version>
                     <extensions>true</extensions>
                     <configuration>
                         <instructions>
@@ -217,7 +216,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.13.0</version>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
@@ -226,22 +225,22 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>${build-helper-maven-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.3.1</version>
+                    <version>${maven-resources-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>${maven-shade-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.2.5</version>
+                    <version>${maven-surefire-plugin.version}</version>
                     <configuration>
                         <excludes>
                             <exclude>**/*IT.java</exclude>
@@ -271,7 +270,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>${maven-enforcer-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>enforce</id>
@@ -308,7 +307,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.4</version>
+                        <version>${maven-gpg-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
